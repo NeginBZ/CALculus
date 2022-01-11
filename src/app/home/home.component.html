@@ -1,0 +1,18 @@
+<h1>Meals list</h1>
+<mat-action-list>
+    <div  style="border: solid black 1px"
+        mat-list-item 
+        *ngFor = "let message of datastore.getScans(); let i = index" 
+        >
+        <img [src]="url" alt="" style="width: 20px; height: 20px;">
+        <input value="Choose file" type="file" mat-raised-button color="basic" style="margin: 10px;" (change) = fileSelected($event)>
+        
+        {{ message }}
+        <br>
+        <button mat-raised-button color="accent" style="margin: 10px;" (click) = onbottonClick(i)>Delete</button>
+    </div>
+    
+</mat-action-list>
+<form>
+    <button mat-raised-button color="primary" (click)="clearHistory()">Reset!</button>
+</form>

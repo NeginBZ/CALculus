@@ -1,0 +1,31 @@
+<mat-toolbar>
+  <button 
+    (click)="drawer.toggle()"
+    mat-icon-button 
+    class="example-icon" 
+    aria-label="Example icon-button with menu icon">
+   <mat-icon>menu</mat-icon>
+ </button>
+ <span>{{title}}</span>
+</mat-toolbar>
+<mat-drawer-container class="example-container">
+  <!--<mat-drawer #drawer mode="side" [(opened)]="isDrawerOpened">-->
+    <mat-drawer #drawer mode="side" opened>
+    <mat-nav-list>
+      <div>
+        <a mat-list-item routerLink = "entry" (click)="drawer.toggle()"><mat-icon matListIcon><img src="../assets/image/checkBox.jpg" style="height: 0.5cm; width: 0.5cm;"></mat-icon>Add-Meal</a>
+      </div>
+      <div>
+        <a mat-list-item routerLink = "home" (click)="drawer.toggle()"><mat-icon matListIcon>home</mat-icon>Meals-List</a>
+      </div>
+      <div>
+        <a mat-list-item routerLink = "meal-plan" (click)="drawer.toggle()"><mat-icon matListIcon><img src="../assets/image/meal.jpg" style="height: 0.5cm; width: 0.5cm;"></mat-icon>Meal-Plan</a>
+      </div>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <!--<h1 *ngIf="!isDrawerOpened">Drawer is closed!</h1>
+    <input type="checkbox" [(ngModel)]="isDrawerOpened">-->
+    <router-outlet (activate)="changeTitle($event.pageTitle)"></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

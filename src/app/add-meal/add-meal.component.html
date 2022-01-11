@@ -1,0 +1,37 @@
+<form [formGroup] = "entryGroup" (ngSubmit)="onSubmit($event)">
+    <div style="display: flex;">
+      <div style="flex: 1;">
+  
+      </div>
+      <div style=" margin-left: 10px; margin-right: 1200px; display: inline;">
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input 
+          [formControl]= "nameCtrl"
+          matInput placeholder="Ex. Omlet">
+          <mat-error *ngIf="nameCtrl.hasError('required')">Item name is required.</mat-error>
+          <mat-error *ngIf="nameCtrl.hasError('minlength')">Item name is too long.</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Ingredients</mat-label>
+        <input 
+        [formControl]= "itemCtrl"
+        matInput placeholder="Ex. Egg">
+        <mat-error *ngIf="itemCtrl.hasError('required')">Ingredients are required.</mat-error>
+        <mat-error *ngIf="itemCtrl.hasError('maxlength')"> Ingredient is too long.</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Calorie</mat-label>
+      <input type="number"
+      [formControl]= "calorieCtrl"
+      matInput placeholder="Ex. Omlet">
+      <mat-error *ngIf="calorieCtrl.hasError('required')">Calorie is required.</mat-error>
+  </mat-form-field>
+      </div>
+    </div>
+      <div>
+          <button mat-raised-button color="accent" (click) = toggleDisplay()>Add</button>
+          <p *ngIf = "isSubmit">Successfuly added</p>
+      </div>
+      </form>
+      

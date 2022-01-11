@@ -1,0 +1,20 @@
+<h1>check to delete meal for today!</h1>
+
+<!-- <div  style="border: solid black 1px"
+      *ngFor = "let message of datastore.getCalorie(); let i = index" 
+        >
+        {{ message }}
+</div> -->
+
+
+<div style="border: solid black 1px;">
+<mat-checkbox class="example-margin" *ngFor = "let message of datastore.addToPlan(); let i = index" 
+            (click)="onItemClick(i)">
+            {{ message }}>
+</mat-checkbox>
+</div>
+
+
+<form>
+    <button style="margin: 10px;" mat-raised-button color="primary" (click)="clearHistory()">Reset!</button>
+</form>
